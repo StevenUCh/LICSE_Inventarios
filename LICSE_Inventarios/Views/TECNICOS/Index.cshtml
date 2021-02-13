@@ -1,0 +1,83 @@
+﻿@model IEnumerable<LICSE_Inventarios.Models.TECNICO>
+@{
+    ViewBag.Title = "Solicitudes";
+}
+
+<!-- top bar -->
+<div class="top-bar solicitudes">
+    <h1>Tecnico</h1>
+    <p>Home. / Tecnico</p>
+</div>
+<!-- end top bar -->
+<!-- main container -->
+<div class="main-container portfolio-inner clearfix">
+    <!-- portfolio div -->
+    <div class="portfolio-div">
+        <div class="portfolio">
+            <!-- portfolio_filter -->
+            <div class="categories-grid wow fadeInLeft">
+                <nav class="categories text-center">
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Solicitudes", "Index", "SOLICITUDES")
+                        </li>
+                        <li><a href="" class="active">Lista</a></li>
+                        <li>@Html.ActionLink("Registrar", "Create")</li>
+
+                    </ul>
+                </nav>
+            </div>
+            <!-- portfolio_filter -->
+            <!-- portfolio_container -->
+            <div class="container">
+                <!-- single work -->
+                <div class="row">
+                    <div class="col-sm-4-1 offset-md-1-1 py-4 border-op  fashion logo">
+
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    <p>Identificacion</p>
+                                </th>
+                                <th>
+                                    <p>Nombre</p>
+                                </th>
+                                <th>
+                                    <p>Telefono</p>
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.id_tecnico)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.tec_nom)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.tec_tel)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.id_tecnico }) |
+                                        @Html.ActionLink("Detalles", "Details", new { id = item.id_tecnico }) |
+                                         @Html.ActionLink("Eliminar", "Delete", new { id = item.id_tecnico })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                    <!-- end single work -->
+                </div>
+
+            </div>
+            <!-- end portfolio_container -->
+        </div>
+        <!-- portfolio -->
+    </div>
+    <!-- end portfolio div -->
+</div>
+<!-- end main container -->

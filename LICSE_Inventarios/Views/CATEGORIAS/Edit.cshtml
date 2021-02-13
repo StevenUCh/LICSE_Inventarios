@@ -1,0 +1,76 @@
+﻿@model LICSE_Inventarios.Models.CATEGORIA
+
+@{
+    ViewBag.Title = "Editar Categoria";
+}
+
+<div class="top-bar categoria">
+    <h1>Categoria</h1>
+    <p>Home. / Categoria</p>
+</div>
+<!-- end top bar -->
+<!-- main container -->
+<div class="main-container portfolio-inner clearfix">
+    <!-- portfolio div -->
+    <div class="portfolio-div">
+        <div class="portfolio">
+            <!-- portfolio_filter -->
+            <div class="categories-grid wow fadeInLeft">
+                <nav class="categories text-center">
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Lista", "Index")
+                        </li>
+                        <li>@Html.ActionLink("Registrar", "Create")</li>
+                        <li><a href="" class="active">Editar</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- portfolio_filter -->
+            <!-- portfolio_container -->
+            <div class="container">
+
+                <div class="col-md-4-1 col-sm-12 photography">
+
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <h4>CATEGORIA</h4>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.id_categoria)
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Save" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+
+
+
+
+            </div>
+            <!-- end portfolio_container -->
+        </div>
+        <!-- portfolio -->
+    </div>
+    <!-- end portfolio div -->
+</div>
+<!-- end main container -->
+>

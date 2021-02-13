@@ -1,0 +1,88 @@
+﻿@model IEnumerable<LICSE_Inventarios.Models.SEDE>
+
+@{
+    ViewBag.Title = "Sedes";
+}
+
+<!-- top bar -->
+<div class="top-bar solicitudes">
+    <h1>Sedes</h1>
+    <p>Home. / Sede</p>
+</div>
+<!-- end top bar -->
+<!-- main container -->
+<div class="main-container portfolio-inner clearfix">
+    <!-- portfolio div -->
+    <div class="portfolio-div">
+        <div class="portfolio">
+            <!-- portfolio_filter -->
+            <div class="categories-grid wow fadeInLeft">
+                <nav class="categories text-center">
+                    <ul>
+                        <li><a href="" class="active">Lista</a></li>
+                        <li>@Html.ActionLink("Registrar", "Create")</li>
+
+                    </ul>
+                </nav>
+            </div>
+            <!-- portfolio_filter -->
+            <!-- portfolio_container -->
+            <div class="container">
+                <!-- single work -->
+                <div class="row">
+                    <div class="col-sm-4-1 offset-md-1-1 py-4 border-op  fashion logo">
+
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    <p>Nombre</p>@*@Html.DisplayNameFor(model => model.sede_nombre)*@
+                                </th>
+                                <th>
+                                    <p>Direccion</p>@*@Html.DisplayNameFor(model => model.sede_direccion)*@
+                                </th>
+                                <th>
+                                    <p>Encargado</p>@*@Html.DisplayNameFor(model => model.sede_encargado)*@
+                                </th>
+                                <th>
+                                    <p>Tipo sede</p>@*@Html.DisplayNameFor(model => model.TIPO_SEDE.nombre)*@
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.sede_nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.sede_direccion)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.sede_encargado)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TIPO_SEDE.nombre)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Editar", "Edit", new { id = item.id_sede }) |
+                                        @Html.ActionLink("Detalles", "Details", new { id = item.id_sede }) |
+                                         @Html.ActionLink("Eliminar", "Delete", new { id = item.id_sede })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+
+                    </div>
+                    <!-- end single work -->
+                </div>
+
+            </div>
+            <!-- end portfolio_container -->
+        </div>
+        <!-- portfolio -->
+    </div>
+    <!-- end portfolio div -->
+</div>
+<!-- end main container -->

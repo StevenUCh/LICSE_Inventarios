@@ -1,0 +1,115 @@
+﻿@model LICSE_Inventarios.Models.SOLICITUD
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="top-bar solicitudes">
+    <h1>Solicitudes</h1>
+    <p>Home. / Solicitudes</p>
+</div>
+<!-- end top bar -->
+<!-- main container -->
+<div class="main-container portfolio-inner clearfix">
+    <!-- portfolio div -->
+    <div class="portfolio-div">
+        <div class="portfolio">
+            <!-- portfolio_filter -->
+            <div class="categories-grid wow fadeInLeft">
+                <nav class="categories text-center">
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Lista", "Index")
+                        </li>
+                        <li><a class="active">Registrar</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+            <!-- portfolio_filter -->
+            <!-- portfolio_container -->
+            <div class="container">
+                <!-- single work -->
+                <div class="col-sm-4-1 offset-md-1-1 py-4 border-op  fashion logo">
+
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <div class="form-group"></div>                            
+                            <h4>SOLICITUD</h4>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.sol_fecha, "Fecha solictud",htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.sol_fecha, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.sol_fecha, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.usuario, "Usuario", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("usuario", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.fecha_progra, "Fecha a programar",htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.fecha_progra, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.fecha_progra, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.solicitante, "Solicitante",htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.solicitante, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.solicitante, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.sede, "Sede", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("sede", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.sede, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.tecnico, "Tecnico", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("tecnico", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.tecnico, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div>
+                    </div>
+
+                </div>
+                <!-- end single work -->
+
+
+
+            </div>
+            <!-- end portfolio_container -->
+        </div>
+        <!-- portfolio -->
+    </div>
+    <!-- end portfolio div -->
+</div>

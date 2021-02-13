@@ -1,0 +1,92 @@
+﻿@model LICSE_Inventarios.Models.SEDE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<!-- top bar -->
+<div class="top-bar solicitudes">
+    <h1>Sedes</h1>
+    <p>Home. / Sedes</p>
+</div>
+<!-- end top bar -->
+<!-- main container -->
+<div class="main-container portfolio-inner clearfix">
+    <!-- portfolio div -->
+    <div class="portfolio-div">
+        <div class="portfolio">
+            <!-- portfolio_filter -->
+            <div class="categories-grid wow fadeInLeft">
+                <nav class="categories text-center">
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Lista", "Index")
+                        </li>
+                        <li>@Html.ActionLink("Registrar", "Create")</li>
+                        <li><a href="" class="active">Detalle</a></li>
+                        <li>@Html.ActionLink("Editar", "Edit", new { id = Model.ID_SOLICITUD })</li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- portfolio_filter -->
+            <!-- portfolio_container -->
+            <div class="container">
+                <!-- single work -->
+                <div class="col-sm-4-1 offset-md-1-1 py-4 border-op  fashion logo">
+
+
+                    <div>
+
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.LabelFor(model => model.sede_nombre, "Nombre")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.sede_nombre)
+                            </dd>
+
+                            <dt>
+                                @Html.LabelFor(model => model.sede_direccion, "Direccion")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.sede_direccion)
+                            </dd>
+
+                            <dt>
+                                @Html.LabelFor(model => model.sede_encargado, "Encargado")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.sede_encargado)
+                            </dd>
+
+                            <dt>
+                                @Html.LabelFor(model => model.TIPO_SEDE.nombre,  "Tipo sede")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TIPO_SEDE.nombre)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        |
+                    </p>
+
+                </div>
+                <!-- end single work -->
+
+
+            </div>
+            <!-- end portfolio_container -->
+        </div>
+        <!-- portfolio -->
+    </div>
+    <!-- end portfolio div -->
+</div>
+<!-- end main container -->

@@ -1,0 +1,42 @@
+﻿@model LICSE_Inventarios.Models.M_entrada
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>M_entrada</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.elem_ref)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.elem_ref)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.elem_nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.elem_nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cant)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

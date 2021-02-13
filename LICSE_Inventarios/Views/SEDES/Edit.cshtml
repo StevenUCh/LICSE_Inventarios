@@ -1,0 +1,119 @@
+﻿@model LICSE_Inventarios.Models.SEDE
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<!-- top bar -->
+<div class="top-bar solicitudes">
+    <h1>Sedes</h1>
+    <p>Home. / sedes</p>
+</div>
+<!-- end top bar -->
+<!-- main container -->
+<div class="main-container portfolio-inner clearfix">
+    <!-- portfolio div -->
+    <div class="portfolio-div">
+        <div class="portfolio">
+            <!-- portfolio_filter -->
+            <div class="categories-grid wow fadeInLeft">
+                <nav class="categories text-center">
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Lista", "Index")
+                        </li>
+                        <li>@Html.ActionLink("Registrar", "Create")</li>
+                        <li><a href="" class="active">Editar</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- portfolio_filter -->
+            <!-- portfolio_container -->
+            <div class="container">
+                <!-- single work -->
+                <div class="col-sm-4-1 offset-md-1-1 py-4 border-op  fashion logo">
+                    <a href="single-project.html" class="portfolio_item">
+                        <img src="img/portfolio/01.jpg" alt="image" class="img-responsive" />
+                        <div class="portfolio_item_hover">
+                            <div class="portfolio-border clearfix">
+                                <div class="item_info">
+                                    <span>Licse inventarios</span>
+                                    <em>Fashion / Logo</em>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- end single work -->
+                <!-- single work -->
+                <div class="col-md-4 col-sm-12 photography">
+
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <div class="form-group"></div>                            
+                            <h4>SEDE</h4>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.id_sede)
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.sede_nombre, "Nombre",htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.sede_nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.sede_nombre, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.sede_direccion, "Direccion",htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.sede_direccion, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.sede_direccion, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.tipo, "tipo", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("tipo", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.sede_encargado, "Encargado",htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.sede_encargado, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.sede_encargado, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Save" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div>
+                    </div>
+
+                </div>
+                <!-- end single work -->
+
+
+            </div>
+            <!-- end portfolio_container -->
+        </div>
+        <!-- portfolio -->
+    </div>
+    <!-- end portfolio div -->
+</div>
+<!-- end main container -->
+

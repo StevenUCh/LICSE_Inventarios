@@ -1,0 +1,93 @@
+﻿@model LICSE_Inventarios.Models.ENTRADA
+
+@{
+    ViewBag.Title = "Details";
+
+}
+
+div class="top-bar elementos">
+<h1>Elementos</h1>
+<p>Home. / Elementos</p>
+    </div>
+<!-- end top bar -->
+<!-- main container -->
+<div class="main-container portfolio-inner clearfix">
+    <!-- portfolio div -->
+    <div class="portfolio-div">
+        <div class="portfolio">
+            <!-- portfolio_filter -->
+            <div class="categories-grid wow fadeInLeft">
+                <nav class="categories text-center">
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Lista", "Index")
+                        </li>
+                        <li>@Html.ActionLink("Registrar", "Create")</li>
+                        <li><a href="" class="active" data-filter=".logo">Detalle</a></li>
+                        <li>@Html.ActionLink("Editar", "Edit", new { id = Model.id_registro })</li>
+
+                    </ul>
+                </nav>
+            </div>
+            <!-- portfolio_filter -->
+            <!-- portfolio_container -->
+            <div class="container">
+
+
+                <div class="col-md-4 col-sm-12 photography">
+
+
+
+                    <div>
+
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.cant)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.cant)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.fecha)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.fecha)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ELEMENTO1.elem_ref)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ELEMENTO1.elem_ref)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.USUARIO1.usu_nombre)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.USUARIO1.usu_nombre)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        |
+                    </p>
+
+                </div>
+
+
+            </div>
+            <!-- end portfolio_container -->
+        </div>
+        <!-- portfolio -->
+    </div>
+    <!-- end portfolio div -->
+</div>
+<!-- end main container -->

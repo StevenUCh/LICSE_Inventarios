@@ -1,0 +1,56 @@
+﻿
+<div class="container-fluid">
+    <!-- box header -->
+    <header class="box-header">
+        <div class="box-logo">
+            <a href="index.html"><img src="~/Content/img/logo.png" width="150" alt="Logo"></a>
+        </div>
+        <!-- box-nav -->
+        <a class="box-primary-nav-trigger" href="#0">
+            <span class="box-menu-text">Menu</span><span class="box-menu-icon"></span>
+        </a>
+        <!-- box-primary-nav-trigger -->
+    </header>
+    <!-- end box header -->
+    <!-- nav -->
+    <nav>
+        <ul class="box-primary-nav">
+            <li class="box-label">Opciones</li>
+            <li>@Html.ActionLink("Inicio", "Inicio_admin", "home")</li>
+            <li>@Html.ActionLink("Usuarios", "index", "USUARIOS")</li>
+            <li>@Html.ActionLink("Proveedores", "index", "PROVEEDORES")</li>
+            <li>@Html.ActionLink("Elementos", "index", "ELEMENTOS")</li>
+            <li>@Html.ActionLink("Categoria", "index", "CATEGORIAS")</li>
+            <li>@Html.ActionLink("solicitud", "index", "SOLICITUDES")</li>
+            <li>@Html.ActionLink("Movimientos", "Index", "Movimientos")</li>
+            <li><a href="contact.html">Alertas</a></li>
+            <li>---</li>
+            <li>
+                <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Cerrar sesion
+                </a>
+            </li>           
+        </ul>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirmacion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Esta seguro de cerrar sesion?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        @Html.ActionLink("Aceptar", "cerrar_sesion", "close", null, new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+         </div>
+    </nav>
+    <!-- end nav -->
+</div>
+@*@Html.Partial("~/Views/Shared/_Flash.cshtml")*@

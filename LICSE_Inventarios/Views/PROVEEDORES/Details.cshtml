@@ -1,0 +1,83 @@
+﻿@model LICSE_Inventarios.Models.PROVEEDOR
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="top-bar proveedores">
+    <h1>Proveedores</h1>
+    <p>Home. / Proveedores</p>
+</div>
+<!-- end top bar -->
+<!-- main container -->
+<div class="main-container portfolio-inner clearfix">
+    <!-- portfolio div -->
+    <div class="portfolio-div">
+        <div class="portfolio">
+            <!-- portfolio_filter -->
+            <div class="categories-grid wow fadeInLeft">
+                <nav class="categories text-center">
+                    <ul class="">
+                        <li>@Html.ActionLink("Lista", "Index")</li>
+                        <li>@Html.ActionLink("Registrar", "create")</li>
+                        <li><a href="" class="active" data-filter=".logo">Detalle</a></li>
+                        <li>@Html.ActionLink("Editar", "Edit", new { id = Model.id_proveedor })</li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- portfolio_filter -->
+            <!-- portfolio_container -->
+            <div class="container">
+                <!-- single work -->
+                <div class="col-sm-4-1 offset-md-1-1 py-4 border-op  fashion logo">
+
+
+
+                    <div>
+
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.LabelFor(model => model.pro_nombre, "Nombre")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.pro_nombre)
+                            </dd>
+
+                            <dt>
+                                @Html.LabelFor(model => model.pro_telefono, "Telefono")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.pro_telefono)
+                            </dd>
+
+                            <dt>
+                                @Html.LabelFor(model => model.pro_correo, "Correo")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.pro_correo)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+
+
+                    </p>
+
+
+                </div>
+
+
+
+            </div>
+            <!-- end portfolio_container -->
+        </div>
+        <!-- portfolio -->
+    </div>
+    <!-- end portfolio div -->
+</div>

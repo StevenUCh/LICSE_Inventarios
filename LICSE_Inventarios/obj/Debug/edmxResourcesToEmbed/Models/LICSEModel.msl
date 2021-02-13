@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LICSE_InventariosModelStoreContainer" CdmEntityContainer="LICSE_InventariosEntities">
+    <EntitySetMapping Name="CATEGORIA">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.CATEGORIA">
+        <MappingFragment StoreEntitySet="CATEGORIA">
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ELEMENTO">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.ELEMENTO">
+        <MappingFragment StoreEntitySet="ELEMENTO">
+          <ScalarProperty Name="id_elem" ColumnName="id_elem" />
+          <ScalarProperty Name="elem_ref" ColumnName="elem_ref" />
+          <ScalarProperty Name="elem_nom" ColumnName="elem_nom" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENTRADA">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.ENTRADA">
+        <MappingFragment StoreEntitySet="ENTRADA">
+          <ScalarProperty Name="id_registro" ColumnName="id_registro" />
+          <ScalarProperty Name="elemento" ColumnName="elemento" />
+          <ScalarProperty Name="cant" ColumnName="cant" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENTRADA_SOLICITUD">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.ENTRADA_SOLICITUD">
+        <MappingFragment StoreEntitySet="ENTRADA_SOLICITUD">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="entrada" ColumnName="entrada" />
+          <ScalarProperty Name="solicitud" ColumnName="solicitud" />
+          <ScalarProperty Name="cant" ColumnName="cant" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADO_USUARIO">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.ESTADO_USUARIO">
+        <MappingFragment StoreEntitySet="ESTADO_USUARIO">
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVEEDOR">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.PROVEEDOR">
+        <MappingFragment StoreEntitySet="PROVEEDOR">
+          <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+          <ScalarProperty Name="pro_nombre" ColumnName="pro_nombre" />
+          <ScalarProperty Name="pro_telefono" ColumnName="pro_telefono" />
+          <ScalarProperty Name="pro_correo" ColumnName="pro_correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROL">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.ROL">
+        <MappingFragment StoreEntitySet="ROL">
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEDE">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.SEDE">
+        <MappingFragment StoreEntitySet="SEDE">
+          <ScalarProperty Name="id_sede" ColumnName="id_sede" />
+          <ScalarProperty Name="sede_nombre" ColumnName="sede_nombre" />
+          <ScalarProperty Name="sede_direccion" ColumnName="sede_direccion" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="sede_encargado" ColumnName="sede_encargado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOLICITUD">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.SOLICITUD">
+        <MappingFragment StoreEntitySet="SOLICITUD">
+          <ScalarProperty Name="id_solicitud" ColumnName="id_solicitud" />
+          <ScalarProperty Name="sol_fecha" ColumnName="sol_fecha" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fecha_progra" ColumnName="fecha_progra" />
+          <ScalarProperty Name="solicitante" ColumnName="solicitante" />
+          <ScalarProperty Name="sede" ColumnName="sede" />
+          <ScalarProperty Name="tecnico" ColumnName="tecnico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TECNICO">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.TECNICO">
+        <MappingFragment StoreEntitySet="TECNICO">
+          <ScalarProperty Name="id_tecnico" ColumnName="id_tecnico" />
+          <ScalarProperty Name="tec_nom" ColumnName="tec_nom" />
+          <ScalarProperty Name="tec_tel" ColumnName="tec_tel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_SEDE">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.TIPO_SEDE">
+        <MappingFragment StoreEntitySet="TIPO_SEDE">
+          <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="usu_nombre" ColumnName="usu_nombre" />
+          <ScalarProperty Name="usu_apellido" ColumnName="usu_apellido" />
+          <ScalarProperty Name="usu_telefono" ColumnName="usu_telefono" />
+          <ScalarProperty Name="usu_correo" ColumnName="usu_correo" />
+          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_entrada">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.M_entrada">
+        <MappingFragment StoreEntitySet="M_entrada">
+          <ScalarProperty Name="id_registro" ColumnName="id_registro" />
+          <ScalarProperty Name="elem_ref" ColumnName="elem_ref" />
+          <ScalarProperty Name="elem_nom" ColumnName="elem_nom" />
+          <ScalarProperty Name="cant" ColumnName="cant" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="usu_nombre" ColumnName="usu_nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_Salida">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.M_Salida">
+        <MappingFragment StoreEntitySet="M_Salida">
+          <ScalarProperty Name="Solicitud" ColumnName="Solicitud" />
+          <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Fecha_salida" ColumnName="Fecha salida" />
+          <ScalarProperty Name="Solicitante" ColumnName="Solicitante" />
+          <ScalarProperty Name="Sede" ColumnName="Sede" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stock">
+      <EntityTypeMapping TypeName="LICSE_InventariosModel.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="LICSE_InventariosModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="LICSE_InventariosModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="LICSE_InventariosModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="LICSE_InventariosModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LICSE_InventariosModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="LICSE_InventariosModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LICSE_InventariosModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="LICSE_InventariosModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="LICSE_InventariosModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

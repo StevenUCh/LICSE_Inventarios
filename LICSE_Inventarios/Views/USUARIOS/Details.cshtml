@@ -1,0 +1,121 @@
+﻿@model LICSE_Inventarios.Models.USUARIO
+
+@{
+    ViewBag.Title = "Detalles usuario";   
+}
+
+<div class="top-bar home">
+    <h1>Usuarios</h1>
+    <p>Home. / Usuarios</p>
+</div>
+<!-- end top bar -->
+<!-- main container -->
+<div class="main-container portfolio-inner clearfix">
+    <!-- portfolio div -->
+    <div class="portfolio-div">
+        <div class="portfolio">
+            <!-- portfolio_filter -->
+            <div class="categories-grid wow fadeInLeft">
+                @*@Html.Partial("~/Views/Shared/_Flash.cshtml")*@
+                <nav class="categories text-center">
+                    <ul>
+                        <li>
+                            @Html.ActionLink("Lista", "Index")
+                        </li>
+                        <li>@Html.ActionLink("Registrar", "Create")</li>
+                        <li><a href="" class="active">Detalles</a></li>
+                        <li>@Html.ActionLink("Editar", "Edit", new { id = Model.id_usuario })</li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="container">
+                <!-- single work -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4-1 offset-md-1-1 py-4 border-op  fashion logo">
+                            <div class="portfolio_item_hover">
+                                <dl class="dl-horizontal">
+
+                                    <dt>
+                                        @Html.LabelFor(model => model.id_usuario, "Identificacion")
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.id_usuario)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.LabelFor(model => model.usu_nombre, "Nombre")
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.usu_nombre)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.LabelFor(model => model.usu_apellido, "Apellido")
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.usu_apellido)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.LabelFor(model => model.usu_telefono, "Telefono")
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.usu_telefono)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.LabelFor(model => model.usu_correo, "Correo")
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.usu_correo)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.LabelFor(model => model.contraseña, "Contraseña")
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.contraseña)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.LabelFor(model => model.ESTADO_USUARIO.nombre, "Estado")
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.ESTADO_USUARIO.nombre)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.LabelFor(model => model.ROL1.nombre, "Rol")
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.ROL1.nombre)
+                                    </dd>
+
+                                </dl>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <!-- end portfolio_container -->
+            </div>
+            <!-- portfolio -->
+        </div>
+        <!-- end portfolio div -->
+    </div>
+    <!-- end main container -->
+</div>
+

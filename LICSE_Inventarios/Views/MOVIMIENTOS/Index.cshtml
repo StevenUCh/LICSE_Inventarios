@@ -1,0 +1,99 @@
+﻿@model IEnumerable<LICSE_Inventarios.Models.M_entrada>
+
+@{
+    ViewBag.Title = "Movimientos de entrada";
+}
+
+<div class="top-bar elementos">
+    <h1>Movimientos de entrada</h1>
+    <p>Home. / Movimientos</p>
+</div>
+<!-- end top bar -->
+<!-- main container -->
+<div class="main-container portfolio-inner clearfix">
+    <!-- portfolio div -->
+    <div class="portfolio-div">
+        <div class="portfolio">
+            <!-- portfolio_filter -->
+            <div class="categories-grid wow fadeInLeft">
+                <nav class="categories text-center">
+                    <ul>
+                        <li><a href="" class="active">M Entrada</a></li>                       
+                        <li>@Html.ActionLink("M Salida", "M_Salida")</li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- portfolio_filter -->
+            <!-- portfolio_container -->
+            <div class="container">
+                <!-- single work -->
+                <div class="row">
+                    <div class="col-sm-4-1 offset-md-1-1 py-4 border-op fashion logo">
+
+
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    <p>N° Registro</p>
+                                </th>
+                                <th>
+                                    <p>Referencia</p>
+                                </th>
+                                <th>
+                                    <p>Nombre</p>
+                                </th>
+                                <th>
+                                    <p>Cantidad</p>
+                                </th>
+                                <th>
+                                    <p>Fecha</p>
+                                </th>
+                                <th>
+                                    <p>Usuario</p>
+                                </th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.id_registro)
+                                    </th>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.elem_ref)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.elem_nom)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.cant)
+                                    </td>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.fecha)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.usu_nombre)
+                                    </th>
+                                    @*<td>
+                                        @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                        @Html.ActionLink("Detalles", "Details", new { /* id=item.PrimaryKey */ }) |
+                                         @Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */ })
+                                    </td>*@
+                                </tr>
+                            }
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- end portfolio_container -->
+        </div>
+        <!-- portfolio -->
+    </div>
+    <!-- end portfolio div -->
+</div>
+<!-- end main container -->

@@ -1,0 +1,6 @@
+﻿@foreach (var flash in Request.GetFlashMessages())
+{
+   
+    <div class="alert-@flash.Type alert-secondary">@flash.Message</div>
+
+}

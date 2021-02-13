@@ -1,0 +1,123 @@
+﻿@model IEnumerable<LICSE_Inventarios.Models.USUARIO>
+
+@{
+    ViewBag.Title = "Usuarios";    
+}
+
+<div class="top-bar home">
+    <h1>Usuarios</h1>
+    <p>Home. / Usuarios</p>
+</div>
+<!-- end top bar -->
+<!-- main container -->
+<div class="main-container portfolio-inner clearfix">
+    <!-- portfolio div -->
+    <div class="portfolio-div">
+        <div class="portfolio">
+            <!-- portfolio_filter -->
+            <div class="categories-grid wow fadeInLeft">
+
+                <nav class="categories text-center">
+                    @*@Html.Partial("~/Views/Shared/_Flash.cshtml")*@
+                    <ul>
+                        <li><a href="" class="active" data-filter=".logo">Lista</a></li>
+                        <li>
+                            @Html.ActionLink("Registrar", "Create", "USUARIOS")
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="container">
+                <!-- single work -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4-1 offset-md-1-1 py-4 border-op  fashion logo">
+                            <div class="portfolio_item_hover">
+                                @*INICIO*@
+                                <p>
+                                </p>
+                                <table class="table">
+                                    <tr>
+                                        <th>
+                                            <p>Identificacion</p>
+                                        </th>
+                                        <th>
+                                            <p>Nombre</p>
+                                        </th>
+                                        <th>
+                                            <p>Apellido</p>
+                                        </th>
+                                        <th>
+                                            <p>Telefono</p>
+                                        </th>
+                                        <th>
+                                            <p>Correo</p>
+                                        </th>
+                                        @*<th>
+                                            <p>Contraseña</p>
+                                        </th>*@
+                                        <th>
+                                            <p>Estado</p>
+                                        </th>
+                                        <th>
+                                            <p>Rol</p>
+                                        </th>
+                                        <th></th>
+                                    </tr>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.id_usuario)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.usu_nombre)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.usu_apellido)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.usu_telefono)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.usu_correo)
+                                            </td>
+                                            @*<td>
+                                                @Html.DisplayFor(modelItem => item.contraseña)
+                                            </td>*@
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ESTADO_USUARIO.nombre)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ROL1.nombre)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Editar", "Edit", new { id = item.id_usuario }) |
+                                                @Html.ActionLink("Detalles", "Details", new { id = item.id_usuario }) |
+                                                 @Html.ActionLink("Eliminar", "Delete", new { id = item.id_usuario })
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </table>
+
+                                @*FIN*@
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <!-- end portfolio_container -->
+                </div>
+                <!-- portfolio -->
+            </div>
+            <!-- end portfolio div -->
+        </div>
+        <!-- end main container -->
+
+    </div>
+</div>

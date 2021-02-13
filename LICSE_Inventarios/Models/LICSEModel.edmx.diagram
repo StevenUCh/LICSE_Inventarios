@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eecce59896304013a4d750d17a78d080" Name="Diagram1">
+        <EntityTypeShape EntityType="LICSE_InventariosModel.CATEGORIA" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.ELEMENTO" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.ENTRADA" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.ENTRADA_SOLICITUD" Width="1.5" PointX="10.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.ESTADO_USUARIO" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.PROVEEDOR" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.ROL" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.SEDE" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.SOLICITUD" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.TECNICO" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.TIPO_SEDE" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.USUARIO" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.M_entrada" Width="1.5" PointX="5.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.M_Salida" Width="1.5" PointX="7.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LICSE_InventariosModel.Stock" Width="1.5" PointX="9.75" PointY="11.625" IsExpanded="true" />
+        <AssociationConnector Association="LICSE_InventariosModel.FK__ELEMENTO__catego__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="LICSE_InventariosModel.FK__ELEMENTO__Provee__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="LICSE_InventariosModel.FK__ENTRADA__element__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="LICSE_InventariosModel.FK__ENTRADA__usuario__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="LICSE_InventariosModel.FK__ENTRADA_S__entra__114A936A" ManuallyRouted="false" />
+        <AssociationConnector Association="LICSE_InventariosModel.FK__ENTRADA_S__solic__123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="LICSE_InventariosModel.FK__USUARIO__estado__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="LICSE_InventariosModel.FK__USUARIO__rol__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="LICSE_InventariosModel.FK__SEDE__tipo__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="LICSE_InventariosModel.FK__SOLICITUD__sede__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="LICSE_InventariosModel.FK__SOLICITUD__tecni__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="LICSE_InventariosModel.FK__SOLICITUD__usuar__07C12930" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

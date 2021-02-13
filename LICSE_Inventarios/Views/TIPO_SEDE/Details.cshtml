@@ -1,0 +1,26 @@
+﻿@model LICSE_Inventarios.Models.TIPO_SEDE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TIPO_SEDE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id_tipo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

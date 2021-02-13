@@ -1,0 +1,22 @@
+﻿@*@Html.Partial("~/Views/Shared/_Flash.cshtml")*@
+<div class="container-fluid">
+    <!-- box header -->
+    <header class="box-header">
+        <div class="box-logo">
+            <a href="index.html"><img src="~/Content/img/logo.png" width="150" alt="Logo"></a>
+        </div>
+        <!-- box-nav -->
+        <a class="box-primary-nav-trigger" href="#0">
+            <span class="box-menu-text">Menu</span><span class="box-menu-icon"></span>
+        </a>
+        <!-- box-primary-nav-trigger -->
+    </header>
+    <!-- end box header -->
+    <!-- nav -->
+    <nav>
+        <ul class="box-primary-nav">
+            <li>@Html.ActionLink("Contacto","contact","home")</li>
+        </ul>
+    </nav>
+    <!-- end nav -->
+</div>

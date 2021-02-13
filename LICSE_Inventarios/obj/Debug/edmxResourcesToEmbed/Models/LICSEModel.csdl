@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LICSE_InventariosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CATEGORIA">
+    <Key>
+      <PropertyRef Name="id_categoria" />
+    </Key>
+    <Property Name="id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ELEMENTO" Relationship="Self.FK__ELEMENTO__catego__47DBAE45" FromRole="CATEGORIA" ToRole="ELEMENTO" />
+  </EntityType>
+  <EntityType Name="ELEMENTO">
+    <Key>
+      <PropertyRef Name="id_elem" />
+    </Key>
+    <Property Name="id_elem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="elem_ref" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="elem_nom" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="categoria" Type="Int32" />
+    <Property Name="Proveedor" Type="Int32" />
+    <NavigationProperty Name="CATEGORIA1" Relationship="Self.FK__ELEMENTO__catego__47DBAE45" FromRole="ELEMENTO" ToRole="CATEGORIA" />
+    <NavigationProperty Name="PROVEEDOR1" Relationship="Self.FK__ELEMENTO__Provee__48CFD27E" FromRole="ELEMENTO" ToRole="PROVEEDOR" />
+    <NavigationProperty Name="ENTRADA" Relationship="Self.FK__ENTRADA__element__4BAC3F29" FromRole="ELEMENTO" ToRole="ENTRADA" />
+  </EntityType>
+  <EntityType Name="ENTRADA">
+    <Key>
+      <PropertyRef Name="id_registro" />
+    </Key>
+    <Property Name="id_registro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="elemento" Type="Int32" />
+    <Property Name="cant" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="usuario" Type="Int32" />
+    <NavigationProperty Name="ELEMENTO1" Relationship="Self.FK__ENTRADA__element__4BAC3F29" FromRole="ENTRADA" ToRole="ELEMENTO" />
+    <NavigationProperty Name="USUARIO1" Relationship="Self.FK__ENTRADA__usuario__4CA06362" FromRole="ENTRADA" ToRole="USUARIO" />
+    <NavigationProperty Name="ENTRADA_SOLICITUD" Relationship="Self.FK__ENTRADA_S__entra__114A936A" FromRole="ENTRADA" ToRole="ENTRADA_SOLICITUD" />
+  </EntityType>
+  <EntityType Name="ENTRADA_SOLICITUD">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="entrada" Type="Int32" />
+    <Property Name="solicitud" Type="Int32" />
+    <Property Name="cant" Type="Int32" />
+    <NavigationProperty Name="ENTRADA1" Relationship="Self.FK__ENTRADA_S__entra__114A936A" FromRole="ENTRADA_SOLICITUD" ToRole="ENTRADA" />
+    <NavigationProperty Name="SOLICITUD1" Relationship="Self.FK__ENTRADA_S__solic__123EB7A3" FromRole="ENTRADA_SOLICITUD" ToRole="SOLICITUD" />
+  </EntityType>
+  <EntityType Name="ESTADO_USUARIO">
+    <Key>
+      <PropertyRef Name="id_estado" />
+    </Key>
+    <Property Name="id_estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="USUARIO" Relationship="Self.FK__USUARIO__estado__4222D4EF" FromRole="ESTADO_USUARIO" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="PROVEEDOR">
+    <Key>
+      <PropertyRef Name="id_proveedor" />
+    </Key>
+    <Property Name="id_proveedor" Type="Int32" Nullable="false" />
+    <Property Name="pro_nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="pro_telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="pro_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ELEMENTO" Relationship="Self.FK__ELEMENTO__Provee__48CFD27E" FromRole="PROVEEDOR" ToRole="ELEMENTO" />
+  </EntityType>
+  <EntityType Name="ROL">
+    <Key>
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="USUARIO" Relationship="Self.FK__USUARIO__rol__412EB0B6" FromRole="ROL" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="SEDE">
+    <Key>
+      <PropertyRef Name="id_sede" />
+    </Key>
+    <Property Name="id_sede" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sede_nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="sede_direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="Int32" />
+    <Property Name="sede_encargado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TIPO_SEDE" Relationship="Self.FK__SEDE__tipo__44FF419A" FromRole="SEDE" ToRole="TIPO_SEDE" />
+    <NavigationProperty Name="SOLICITUD" Relationship="Self.FK__SOLICITUD__sede__08B54D69" FromRole="SEDE" ToRole="SOLICITUD" />
+  </EntityType>
+  <EntityType Name="SOLICITUD">
+    <Key>
+      <PropertyRef Name="id_solicitud" />
+    </Key>
+    <Property Name="id_solicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sol_fecha" Type="DateTime" Precision="0" />
+    <Property Name="usuario" Type="Int32" />
+    <Property Name="fecha_progra" Type="DateTime" Precision="3" />
+    <Property Name="solicitante" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="sede" Type="Int32" />
+    <Property Name="tecnico" Type="Int32" />
+    <NavigationProperty Name="ENTRADA_SOLICITUD" Relationship="Self.FK__ENTRADA_S__solic__123EB7A3" FromRole="SOLICITUD" ToRole="ENTRADA_SOLICITUD" />
+    <NavigationProperty Name="SEDE1" Relationship="Self.FK__SOLICITUD__sede__08B54D69" FromRole="SOLICITUD" ToRole="SEDE" />
+    <NavigationProperty Name="TECNICO1" Relationship="Self.FK__SOLICITUD__tecni__09A971A2" FromRole="SOLICITUD" ToRole="TECNICO" />
+    <NavigationProperty Name="USUARIO1" Relationship="Self.FK__SOLICITUD__usuar__07C12930" FromRole="SOLICITUD" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TECNICO">
+    <Key>
+      <PropertyRef Name="id_tecnico" />
+    </Key>
+    <Property Name="id_tecnico" Type="Int32" Nullable="false" />
+    <Property Name="tec_nom" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="tec_tel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SOLICITUD" Relationship="Self.FK__SOLICITUD__tecni__09A971A2" FromRole="TECNICO" ToRole="SOLICITUD" />
+  </EntityType>
+  <EntityType Name="TIPO_SEDE">
+    <Key>
+      <PropertyRef Name="id_tipo" />
+    </Key>
+    <Property Name="id_tipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SEDE" Relationship="Self.FK__SEDE__tipo__44FF419A" FromRole="TIPO_SEDE" ToRole="SEDE" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="rol" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="usu_nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usu_apellido" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usu_telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="usu_correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contraseña" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ENTRADA" Relationship="Self.FK__ENTRADA__usuario__4CA06362" FromRole="USUARIO" ToRole="ENTRADA" />
+    <NavigationProperty Name="ESTADO_USUARIO" Relationship="Self.FK__USUARIO__estado__4222D4EF" FromRole="USUARIO" ToRole="ESTADO_USUARIO" />
+    <NavigationProperty Name="ROL1" Relationship="Self.FK__USUARIO__rol__412EB0B6" FromRole="USUARIO" ToRole="ROL" />
+    <NavigationProperty Name="SOLICITUD" Relationship="Self.FK__SOLICITUD__usuar__07C12930" FromRole="USUARIO" ToRole="SOLICITUD" />
+  </EntityType>
+  <EntityType Name="M_entrada">
+    <Key>
+      <PropertyRef Name="id_registro" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="usu_nombre" />
+    </Key>
+    <Property Name="id_registro" Type="Int32" Nullable="false" />
+    <Property Name="elem_ref" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="elem_nom" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="cant" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="usu_nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_Salida">
+    <Key>
+      <PropertyRef Name="Solicitud" />
+    </Key>
+    <Property Name="Solicitud" Type="Int32" Nullable="false" />
+    <Property Name="Referencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="Fecha_salida" Type="DateTime" Precision="3" />
+    <Property Name="Solicitante" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Sede" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="Categoria" />
+    </Key>
+    <Property Name="Referencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Categoria" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Proveedor" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__ELEMENTO__catego__47DBAE45">
+    <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="0..1" />
+    <End Role="ELEMENTO" Type="Self.ELEMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIA">
+        <PropertyRef Name="id_categoria" />
+      </Principal>
+      <Dependent Role="ELEMENTO">
+        <PropertyRef Name="categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ELEMENTO__Provee__48CFD27E">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
+    <End Role="ELEMENTO" Type="Self.ELEMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="id_proveedor" />
+      </Principal>
+      <Dependent Role="ELEMENTO">
+        <PropertyRef Name="Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ENTRADA__element__4BAC3F29">
+    <End Role="ELEMENTO" Type="Self.ELEMENTO" Multiplicity="0..1" />
+    <End Role="ENTRADA" Type="Self.ENTRADA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ELEMENTO">
+        <PropertyRef Name="id_elem" />
+      </Principal>
+      <Dependent Role="ENTRADA">
+        <PropertyRef Name="elemento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ENTRADA__usuario__4CA06362">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="ENTRADA" Type="Self.ENTRADA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="ENTRADA">
+        <PropertyRef Name="usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ENTRADA_S__entra__114A936A">
+    <End Role="ENTRADA" Type="Self.ENTRADA" Multiplicity="0..1" />
+    <End Role="ENTRADA_SOLICITUD" Type="Self.ENTRADA_SOLICITUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENTRADA">
+        <PropertyRef Name="id_registro" />
+      </Principal>
+      <Dependent Role="ENTRADA_SOLICITUD">
+        <PropertyRef Name="entrada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ENTRADA_S__solic__123EB7A3">
+    <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="0..1" />
+    <End Role="ENTRADA_SOLICITUD" Type="Self.ENTRADA_SOLICITUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOLICITUD">
+        <PropertyRef Name="id_solicitud" />
+      </Principal>
+      <Dependent Role="ENTRADA_SOLICITUD">
+        <PropertyRef Name="solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USUARIO__estado__4222D4EF">
+    <End Role="ESTADO_USUARIO" Type="Self.ESTADO_USUARIO" Multiplicity="1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO_USUARIO">
+        <PropertyRef Name="id_estado" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USUARIO__rol__412EB0B6">
+    <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROL">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SEDE__tipo__44FF419A">
+    <End Role="TIPO_SEDE" Type="Self.TIPO_SEDE" Multiplicity="0..1" />
+    <End Role="SEDE" Type="Self.SEDE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_SEDE">
+        <PropertyRef Name="id_tipo" />
+      </Principal>
+      <Dependent Role="SEDE">
+        <PropertyRef Name="tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SOLICITUD__sede__08B54D69">
+    <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+    <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEDE">
+        <PropertyRef Name="id_sede" />
+      </Principal>
+      <Dependent Role="SOLICITUD">
+        <PropertyRef Name="sede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SOLICITUD__tecni__09A971A2">
+    <End Role="TECNICO" Type="Self.TECNICO" Multiplicity="0..1" />
+    <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECNICO">
+        <PropertyRef Name="id_tecnico" />
+      </Principal>
+      <Dependent Role="SOLICITUD">
+        <PropertyRef Name="tecnico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SOLICITUD__usuar__07C12930">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="SOLICITUD">
+        <PropertyRef Name="usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LICSE_InventariosEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" />
+    <EntitySet Name="ELEMENTO" EntityType="Self.ELEMENTO" />
+    <EntitySet Name="ENTRADA" EntityType="Self.ENTRADA" />
+    <EntitySet Name="ENTRADA_SOLICITUD" EntityType="Self.ENTRADA_SOLICITUD" />
+    <EntitySet Name="ESTADO_USUARIO" EntityType="Self.ESTADO_USUARIO" />
+    <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" />
+    <EntitySet Name="ROL" EntityType="Self.ROL" />
+    <EntitySet Name="SEDE" EntityType="Self.SEDE" />
+    <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TECNICO" EntityType="Self.TECNICO" />
+    <EntitySet Name="TIPO_SEDE" EntityType="Self.TIPO_SEDE" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+    <EntitySet Name="M_entrada" EntityType="Self.M_entrada" />
+    <EntitySet Name="M_Salida" EntityType="Self.M_Salida" />
+    <EntitySet Name="Stock" EntityType="Self.Stock" />
+    <AssociationSet Name="FK__ELEMENTO__catego__47DBAE45" Association="Self.FK__ELEMENTO__catego__47DBAE45">
+      <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+      <End Role="ELEMENTO" EntitySet="ELEMENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ELEMENTO__Provee__48CFD27E" Association="Self.FK__ELEMENTO__Provee__48CFD27E">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="ELEMENTO" EntitySet="ELEMENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ENTRADA__element__4BAC3F29" Association="Self.FK__ENTRADA__element__4BAC3F29">
+      <End Role="ELEMENTO" EntitySet="ELEMENTO" />
+      <End Role="ENTRADA" EntitySet="ENTRADA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ENTRADA__usuario__4CA06362" Association="Self.FK__ENTRADA__usuario__4CA06362">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="ENTRADA" EntitySet="ENTRADA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ENTRADA_S__entra__114A936A" Association="Self.FK__ENTRADA_S__entra__114A936A">
+      <End Role="ENTRADA" EntitySet="ENTRADA" />
+      <End Role="ENTRADA_SOLICITUD" EntitySet="ENTRADA_SOLICITUD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ENTRADA_S__solic__123EB7A3" Association="Self.FK__ENTRADA_S__solic__123EB7A3">
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+      <End Role="ENTRADA_SOLICITUD" EntitySet="ENTRADA_SOLICITUD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USUARIO__estado__4222D4EF" Association="Self.FK__USUARIO__estado__4222D4EF">
+      <End Role="ESTADO_USUARIO" EntitySet="ESTADO_USUARIO" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USUARIO__rol__412EB0B6" Association="Self.FK__USUARIO__rol__412EB0B6">
+      <End Role="ROL" EntitySet="ROL" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SEDE__tipo__44FF419A" Association="Self.FK__SEDE__tipo__44FF419A">
+      <End Role="TIPO_SEDE" EntitySet="TIPO_SEDE" />
+      <End Role="SEDE" EntitySet="SEDE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SOLICITUD__sede__08B54D69" Association="Self.FK__SOLICITUD__sede__08B54D69">
+      <End Role="SEDE" EntitySet="SEDE" />
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SOLICITUD__tecni__09A971A2" Association="Self.FK__SOLICITUD__tecni__09A971A2">
+      <End Role="TECNICO" EntitySet="TECNICO" />
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SOLICITUD__usuar__07C12930" Association="Self.FK__SOLICITUD__usuar__07C12930">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(LICSE_InventariosModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(LICSE_InventariosModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

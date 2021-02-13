@@ -1,0 +1,100 @@
+﻿@model IEnumerable<LICSE_Inventarios.Models.M_Salida>
+
+@{
+    ViewBag.Title = "Movimiento de Salida";
+}
+
+<div class="top-bar solicitudes">
+    <h1>Movimientos de salida</h1>
+    <p>Home. / Movimientos</p>
+</div>
+<!-- end top bar -->
+<!-- main container -->
+<div class="main-container portfolio-inner clearfix">
+    <!-- portfolio div -->
+    <div class="portfolio-div">
+        <div class="portfolio">
+            <!-- portfolio_filter -->
+            <div class="categories-grid wow fadeInLeft">
+                <nav class="categories text-center">
+                    <ul>
+                        <li>@Html.ActionLink("M Entrada", "index")</li>
+                        <li><a href="" class="active">M Salida</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- portfolio_filter -->
+            <!-- portfolio_container -->
+            <div class="container">
+                <!-- single work -->
+                <div class="row">
+                    <div class="col-sm-4-1 offset-md-1-1 py-4 border-op  fashion logo">
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Referencia)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Nombre)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Cantidad)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Fecha_salida)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Solicitante)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Sede)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Referencia)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cantidad)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Fecha_salida)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Solicitante)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Sede)
+                                    </td>
+                                    <td>
+                                        @*@Html.ActionLink("Editar", "Edit", new { id = item.Solicitud }) |
+                                        @Html.ActionLink("Detalles", "Details", new { id = item.Solicitud }) |
+                                         @Html.ActionLink("Eliminar", "Delete", new { id = item.Solicitud })*@
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                    <!-- end single work -->
+                </div>
+
+            </div>
+            <!-- end portfolio_container -->
+        </div>
+        <!-- portfolio -->
+    </div>
+    <!-- end portfolio div -->
+</div>
+<!-- end main container -->
+
+
+
+
