@@ -595,6 +595,8 @@
     <Content Include="Views\Stocks\Details.cshtml" />
     <Content Include="Views\Stocks\Edit.cshtml" />
     <Content Include="Views\Stocks\Index.cshtml" />
+    <Content Include="Views\USUARIOS\Details_aux.cshtml" />
+    <Content Include="Views\USUARIOS\Edit_aux.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
