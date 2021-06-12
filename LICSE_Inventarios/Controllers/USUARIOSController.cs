@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LICSE_Inventarios.Models;
+using System.Web.Security;
 
 namespace LICSE_Inventarios.Controllers
 {
@@ -48,14 +49,38 @@ namespace LICSE_Inventarios.Controllers
             
         }
 
-        // GET: USUARIOS/Create
+        /* GET: USUARIOS/Details_aux/5
+        public async Task<ActionResult> Details_aux(int? id)
+        {
+            if (Session["User"] != null)
+            {
+                _ = Membership.GetUser(User.Identity.Name);
+
+                id = a.equals((int)usuario.ProviderUserKey);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                USUARIO uSUARIO = userId ; await db.USUARIO.FindAsync(id);
+                if (uSUARIO == null)
+                {
+                    return HttpNotFound();
+                }
+                return View();
+            }
+            return RedirectToAction("index", "Home");
+
+
+        }*/
+
+        //GET: USUARIOS/Create
         public ActionResult Create()
         {
             if (Session["User"] != null)
             {
                 ViewBag.estado = new SelectList(db.ESTADO_USUARIO, "id_estado", "nombre");
-                ViewBag.rol = new SelectList(db.ROL, "id_rol", "nombre");
-                return View();
+               ViewBag.rol = new SelectList(db.ROL, "id_rol", "nombre");
+                return View(); 
             }
             return RedirectToAction("index", "Home");
         }
@@ -83,7 +108,7 @@ namespace LICSE_Inventarios.Controllers
         // GET: USUARIOS/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
-            if (Session["User"] != null)
+            if (Session["User"] != null  )
             {
                 if (id == null)
                 {
@@ -121,6 +146,48 @@ namespace LICSE_Inventarios.Controllers
             return View(uSUARIO);
         }
 
+
+        /*// GET: USUARIOS/Edit_Aux/5
+        public async Task<ActionResult> Edit_aux(int? id)
+        {
+            if (Session["User"] != null)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                USUARIO uSUARIO = await db.USUARIO.FindAsync(id);
+                if (uSUARIO == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.estado = new SelectList(db.ESTADO_USUARIO, "id_estado", "nombre", uSUARIO.estado);
+                ViewBag.rol = new SelectList(db.ROL, "id_rol", "nombre", uSUARIO.rol);
+                return View();
+            }
+            return RedirectToAction("index", "Home");
+
+
+        }
+
+        // POST: USUARIOS/Edit/5
+        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
+        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit_aux([Bind(Include = "rol,id_usuario,usu_nombre,usu_apellido,usu_telefono,usu_correo,contraseña,estado")] USUARIO uSUARIO)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(uSUARIO).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            ViewBag.estado = new SelectList(db.ESTADO_USUARIO, "id_estado", "nombre", uSUARIO.estado);
+            ViewBag.rol = new SelectList(db.ROL, "id_rol", "nombre", uSUARIO.rol);
+            return View(uSUARIO);
+        }
+
         // GET: USUARIOS/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
@@ -140,7 +207,7 @@ namespace LICSE_Inventarios.Controllers
             return RedirectToAction("index", "Home");
 
             
-        }
+        }*/
 
         // POST: USUARIOS/Delete/5
         [HttpPost, ActionName("Delete")]
