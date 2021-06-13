@@ -22,12 +22,13 @@ namespace LICSE_Inventarios.Controllers
             //catch { }
             return View();
         }
-
+       
         [HttpPost]
         public ActionResult Login(int username, string pass)
         {
             pass = Encrypt.GetSHA256(pass);
             var home = "";
+            
             try
             {
                 using (Models.LICSE_InventariosEntities db = new Models.LICSE_InventariosEntities())
@@ -37,7 +38,8 @@ namespace LICSE_Inventarios.Controllers
                                  where s.id_usuario == username && s.contraseña == pass && s.estado == 1
                                  select new { s.id_usuario, sa.nombre }).FirstOrDefault();                    
 
-                    var rol = oUser.nombre;               
+                    var rol = oUser.nombre;
+                    
 
                     if (oUser == null)
                     {                                               

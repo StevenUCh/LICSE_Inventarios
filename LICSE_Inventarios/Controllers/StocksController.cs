@@ -21,6 +21,18 @@ namespace LICSE_Inventarios.Controllers
             return View(await db.Stock.ToListAsync());
         }
 
+        //Retorno:Inicio
+        public async Task<ActionResult> Inicio()
+        {
+            /* if (Session["User"] != null)
+             {
+                 var uSUARIO = db.USUARIO.Include(u => u.ESTADO_USUARIO).Include(u => u.ROL1);
+                 return View(await uSUARIO.ToListAsync());
+             }*/
+            return RedirectToAction("Inicio_Admin", "Home");
+
+        }
+
         // GET: Stocks/Details/5
         public async Task<ActionResult> Details(string id)
         {

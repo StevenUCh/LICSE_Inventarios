@@ -27,6 +27,17 @@ namespace LICSE_Inventarios.Controllers
             return RedirectToAction("index", "Home");
             
         }
+        //Retorno:Inicio
+        public async Task<ActionResult> Inicio()
+        {
+           /* if (Session["User"] != null)
+            {
+                var uSUARIO = db.USUARIO.Include(u => u.ESTADO_USUARIO).Include(u => u.ROL1);
+                return View(await uSUARIO.ToListAsync());
+            }*/
+            return RedirectToAction("Inicio_Admin", "Home");
+
+        }
 
         // GET: USUARIOS/Details/5
         public async Task<ActionResult> Details(int? id)
@@ -186,7 +197,7 @@ namespace LICSE_Inventarios.Controllers
             ViewBag.estado = new SelectList(db.ESTADO_USUARIO, "id_estado", "nombre", uSUARIO.estado);
             ViewBag.rol = new SelectList(db.ROL, "id_rol", "nombre", uSUARIO.rol);
             return View(uSUARIO);
-        }
+        }*/
 
         // GET: USUARIOS/Delete/5
         public async Task<ActionResult> Delete(int? id)
@@ -207,7 +218,7 @@ namespace LICSE_Inventarios.Controllers
             return RedirectToAction("index", "Home");
 
             
-        }*/
+        }
 
         // POST: USUARIOS/Delete/5
         [HttpPost, ActionName("Delete")]
