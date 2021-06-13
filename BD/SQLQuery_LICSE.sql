@@ -52,7 +52,7 @@ CREATE TABLE USUARIO
 	usu_apellido VARCHAR (35), 
 	usu_telefono VARCHAR (15), 
 	usu_correo VARCHAR (60), 
-	contraseña VARCHAR (200),
+	contraseÃ±a VARCHAR (200),
 	estado int FOREIGN KEY REFERENCES  ESTADO_USUARIO(id_estado),
 )
 
@@ -137,7 +137,7 @@ VALUES
 
 
 INSERT INTO USUARIO 
-(rol, id_usuario, usu_nombre, usu_apellido, usu_telefono, usu_correo, contraseña ,estado)
+(rol, id_usuario, usu_nombre, usu_apellido, usu_telefono, usu_correo, contraseÃ±a ,estado)
 VALUES 
 	(1	,1000123283,'Julian','Tunjuelo','3195413609','julianestebanth2001@gmail.com','1880c06b79d0c0f81db9896397c41195fcc073a10b98d69dfbb0194ab3c375ed',1)
 	
@@ -159,16 +159,24 @@ VALUES
 
 	SELECT  dbo.ENTRADA.id_registro, dbo.ELEMENTO.elem_ref, dbo.ELEMENTO.elem_nom, dbo.ENTRADA.cant, dbo.ENTRADA.fecha, dbo.USUARIO.usu_nombre
 	FROM    dbo.ELEMENTO INNER JOIN
-            dbo.ENTRADA ON dbo.ELEMENTO.id_elem = dbo.ENTRADA.elemento INNER JOIN
-            dbo.USUARIO ON dbo.ENTRADA.usuario = dbo.USUARIO.id_usuario
+                dbo.ENTRADA ON dbo.ELEMENTO.id_elem = dbo.ENTRADA.elemento INNER JOIN
+                dbo.USUARIO ON dbo.ENTRADA.usuario = dbo.USUARIO.id_usuario
 
 	-- MOVIMIENTO SALIDA 
 
-	SELECT		dbo.SOLICITUD.id_solicitud, dbo.SOLICITUD.fecha_progra, dbo.SOLICITUD.usuario, dbo.ENTRADA_SOLICITUD.cant, dbo.ELEMENTO.elem_ref, dbo.ELEMENTO.elem_nom, dbo.SOLICITUD.sede
-	FROM        dbo.ENTRADA INNER JOIN
-                dbo.ENTRADA_SOLICITUD ON dbo.ENTRADA.id_registro = dbo.ENTRADA_SOLICITUD.entrada INNER JOIN
-                dbo.SOLICITUD ON dbo.ENTRADA_SOLICITUD.solicitud = dbo.SOLICITUD.id_solicitud INNER JOIN
-                dbo.ELEMENTO ON dbo.ENTRADA.elemento = dbo.ELEMENTO.id_elem
+	SELECT	 dbo.SOLICITUD.id_solicitud, dbo.SOLICITUD.fecha_progra, dbo.SOLICITUD.usuario, dbo.ENTRADA_SOLICITUD.cant, dbo.ELEMENTO.elem_ref, dbo.ELEMENTO.elem_nom, dbo.SOLICITUD.sede
+	FROM     dbo.ENTRADA INNER JOIN
+                 dbo.ENTRADA_SOLICITUD ON dbo.ENTRADA.id_registro = dbo.ENTRADA_SOLICITUD.entrada INNER JOIN
+                 dbo.SOLICITUD ON dbo.ENTRADA_SOLICITUD.solicitud = dbo.SOLICITUD.id_solicitud INNER JOIN
+                 dbo.ELEMENTO ON dbo.ENTRADA.elemento = dbo.ELEMENTO.id_elem
 	GROUP BY dbo.SOLICITUD.id_solicitud, dbo.SOLICITUD.fecha_progra, dbo.SOLICITUD.usuario, dbo.ENTRADA_SOLICITUD.cant, dbo.ELEMENTO.elem_ref, dbo.ELEMENTO.elem_nom, dbo.SOLICITUD.sede
 
 -- Stock 
+	SELECT	    dbo.ELEMENTO.elem_ref AS Referencia, dbo.ELEMENTO.elem_nom AS Nombre, dbo.CATEGORIA.nombre AS Categoria, dbo.PROVEEDOR.pro_nombre AS Proveedor, 
+                    dbo.ENTRADA.cant - dbo.ENTRADA_SOLICITUD.cant AS Cantidad
+	FROM	    dbo.CATEGORIA INNER JOIN
+                    dbo.ELEMENTO ON dbo.CATEGORIA.id_categoria = dbo.ELEMENTO.categoria INNER JOIN
+                    dbo.ENTRADA ON dbo.ELEMENTO.id_elem = dbo.ENTRADA.elemento INNER JOIN
+                    dbo.ENTRADA_SOLICITUD ON dbo.ENTRADA.id_registro = dbo.ENTRADA_SOLICITUD.entrada INNER JOIN
+                    dbo.PROVEEDOR ON dbo.ELEMENTO.Proveedor = dbo.PROVEEDOR.id_proveedor
+	GROUP BY    dbo.ELEMENTO.elem_ref, dbo.ELEMENTO.elem_nom, dbo.CATEGORIA.nombre, dbo.PROVEEDOR.pro_nombre, dbo.ENTRADA.cant - dbo.ENTRADA_SOLICITUD.cant
