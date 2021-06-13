@@ -50,25 +50,32 @@
 
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.id_tecnico)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.tec_nom)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.tec_tel)
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.id_tecnico }) |
-                                        @Html.ActionLink("Detalles", "Details", new { id = item.id_tecnico }) |
-                                         @Html.ActionLink("Eliminar", "Delete", new { id = item.id_tecnico })
-                                    </td>
-                                </tr>
-                            }
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id_tecnico)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tec_nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tec_tel)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.id_tecnico }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.id_tecnico }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.id_tecnico })
+                        </td>
+                    </tr>}
 
                         </table>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                @Html.ActionLink("Volver", "Inicio", "", htmlAttributes: new { @class = "btn btn-default" })
+                            </div>
+                        </div>
+
+
                     </div>
                     <!-- end single work -->
                 </div>
