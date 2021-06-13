@@ -106,7 +106,8 @@
 
 
                                     <div class="form-actions no-color">
-                                        <a class="btn btn-default" data-toggle="modal" data-target="#eliminar_reg"> Eliminar</a>                                        
+                                        <a class="btn btn-default" data-toggle="modal" data-target="#eliminar_reg"> Eliminar</a>
+                                        @Html.ActionLink("Volver", "Index", "Cancelar", htmlAttributes: new { @class = "btn btn-default" })
                                     </div>
 
                                     <div class="modal fade" id="eliminar_reg" tabindex="-1" arialabelledby="exampleModalLabel" aria-hidden="true">
@@ -125,10 +126,11 @@
                                                 {
                                                     @Html.AntiForgeryToken()
 
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                        <button type="submit" class="btn btn-primary">Aceptar</button>                                                        
-                                                    </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-primary">Aceptar</button>
+                                                 
+                                            </div>
                                                 }
                                                 </div>
                                         </div>

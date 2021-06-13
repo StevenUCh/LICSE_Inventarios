@@ -36,7 +36,8 @@
                         <div class="col-sm-4-1 offset-md-1-1 py-4 border-op  fashion logo">
                             <div class="portfolio_item_hover">
                                 <dl class="dl-horizontal">
-
+                                    <dt></dt>
+                                    <dd></dd>
                                     <dt>
                                         @Html.LabelFor(model => model.id_usuario, "Identificacion")
                                     </dt>
@@ -103,7 +104,11 @@
 
                                 </dl>
                             </div>
-
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    @Html.ActionLink("Volver", "Index", "Cancelar", htmlAttributes: new { @class = "btn btn-default" })
+                                </div>
+                            </div>
                         </div>
 
 

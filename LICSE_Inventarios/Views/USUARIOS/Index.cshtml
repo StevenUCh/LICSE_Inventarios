@@ -24,6 +24,7 @@
                         <li>
                             @Html.ActionLink("Registrar", "Create", "USUARIOS")
                         </li>
+                        
                     </ul>
                 </nav>
             </div>
@@ -55,8 +56,8 @@
                                             <p>Correo</p>
                                         </th>
                                         @*<th>
-                                            <p>Contraseña</p>
-                                        </th>*@
+                    <p>Contraseña</p>
+                </th>*@
                                         <th>
                                             <p>Estado</p>
                                         </th>
@@ -68,43 +69,47 @@
 
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.id_usuario)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.usu_nombre)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.usu_apellido)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.usu_telefono)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.usu_correo)
-                                            </td>
-                                            @*<td>
-                                                @Html.DisplayFor(modelItem => item.contraseña)
-                                            </td>*@
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ESTADO_USUARIO.nombre)
-                                            </td>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.ROL1.nombre)
-                                            </td>
-                                            <td>
-                                                @Html.ActionLink("Editar", "Edit", new { id = item.id_usuario }) |
-                                                @Html.ActionLink("Detalles", "Details", new { id = item.id_usuario }) |
-                                                 @Html.ActionLink("Eliminar", "Delete", new { id = item.id_usuario })
-                                            </td>
-                                        </tr>
-                                    }
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id_usuario)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.usu_nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.usu_apellido)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.usu_telefono)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.usu_correo)
+                                </td>
+                                @*<td>
+            @Html.DisplayFor(modelItem => item.contraseña)
+        </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ESTADO_USUARIO.nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ROL1.nombre)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.id_usuario }) |
+                                    @Html.ActionLink("Detalles", "Details", new { id = item.id_usuario }) |
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id_usuario })
+                                </td>
+                            </tr>}
 
                                 </table>
 
                                 @*FIN*@
 
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        @Html.ActionLink("Volver", "Inicio", "", htmlAttributes: new { @class = "btn btn-default" })
+                                    </div>
+                                </div>
                             </div>
 
 
