@@ -25,9 +25,14 @@
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.id_tipo }) |
             @Html.ActionLink("Detalles", "Details", new { id=item.id_tipo }) |
-             @Html.ActionLink("Eliminar", "Delete", new { id=item.id_tipo })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id_tipo })
         </td>
     </tr>
 }
 
 </table>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Volver", "Inicio", "", htmlAttributes: new { @class = "btn btn-default" })
+    </div>
+</div>

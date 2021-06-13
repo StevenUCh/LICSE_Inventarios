@@ -24,3 +24,6 @@
     @Html.ActionLink("Editar", "Edit", new { id = Model.id_tipo }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<div class="col-md-offset-2 col-md-10">
+       @Html.ActionLink("Cancelar", "Index", "Cancelar", htmlAttributes: new { @class = "btn btn-default" })
+</div>
