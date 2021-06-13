@@ -46,37 +46,44 @@
 
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.pro_nombre)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.pro_telefono)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.pro_correo)
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.id_proveedor }) |
-                                        @Html.ActionLink("Detalles", "Details", new { id = item.id_proveedor }) |
-                                         @Html.ActionLink("Eliminar", "Delete", new { id = item.id_proveedor })
-                                    </td>
-                                </tr>
-                            }
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.pro_nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.pro_telefono)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.pro_correo)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.id_proveedor }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.id_proveedor }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.id_proveedor })
+                        </td>
+                    </tr>
+}
 
                         </table>
 
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                @Html.ActionLink("Volver", "Inicio", "", htmlAttributes: new { @class = "btn btn-default" })
+                            </div>
+                        </div>
+
+
                     </div>
+                    
+                    <!-- end single work -->
+
                 </div>
-
-                <!-- end single work -->
-
-            </div>
             <!-- end portfolio_container -->
         </div>
         <!-- portfolio -->
     </div>
     <!-- end portfolio div -->
+</div>
 </div>
 
 
