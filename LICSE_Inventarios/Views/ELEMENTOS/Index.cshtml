@@ -56,29 +56,32 @@
 
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.elem_ref)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.elem_nom)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CATEGORIA1.nombre)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.PROVEEDOR1.pro_nombre)
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.id_elem }) |
-                                        @Html.ActionLink("Detalles", "Details", new { id = item.id_elem }) |
-                                         @Html.ActionLink("Eliminar", "Delete", new { id = item.id_elem })
-                                    </td>
-                                </tr>
-                            }
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.elem_ref)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.elem_nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CATEGORIA1.nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PROVEEDOR1.pro_nombre)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.id_elem }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.id_elem }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.id_elem })
+                        </td>
+                    </tr>}
 
                         </table>
-
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                @Html.ActionLink("Volver", "Inicio", "", htmlAttributes: new { @class = "btn btn-default" })
+                            </div>
+                        </div>
                     </div>
 
                 </div>
