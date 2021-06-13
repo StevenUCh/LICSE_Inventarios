@@ -55,34 +55,40 @@
 
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <th>
-                                        @Html.DisplayFor(modelItem => item.id_registro)
-                                    </th>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.elem_ref)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.elem_nom)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.cant)
-                                    </td>
-                                    <th>
-                                        @Html.DisplayFor(modelItem => item.fecha)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayFor(modelItem => item.usu_nombre)
-                                    </th>
-                                    @*<td>
-                                        @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
-                                        @Html.ActionLink("Detalles", "Details", new { /* id=item.PrimaryKey */ }) |
-                                         @Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */ })
-                                    </td>*@
-                                </tr>
-                            }
+                    <tr>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.id_registro)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.elem_ref)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.elem_nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.cant)
+                        </td>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.fecha)
+                        </th>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.usu_nombre)
+                        </th>
+                        @*<td>
+            @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Detalles", "Details", new { /* id=item.PrimaryKey */ }) |
+             @Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+                    </tr>}
 
                         </table>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                @Html.ActionLink("Volver", "Inicio", "", htmlAttributes: new { @class = "btn btn-default" })
+                            </div>
+                        </div>
+
 
                     </div>
 

@@ -1,8 +1,6 @@
 ﻿@model LICSE_Inventarios.Models.M_entrada
 
-@{
-    ViewBag.Title = "Details";
-}
+@{ ViewBag.Title = "Details"; }
 
 <h2>Details</h2>
 
@@ -40,3 +38,8 @@
     @Html.ActionLink("Editar", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Volver", "Inicio", "", htmlAttributes: new { @class = "btn btn-default" })
+    </div>
+</div>
