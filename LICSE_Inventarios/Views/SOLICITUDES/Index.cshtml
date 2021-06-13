@@ -60,37 +60,43 @@
 
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.id_solicitud)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.sol_fecha)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.fecha_progra)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.solicitante)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.SEDE1.sede_nombre)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.TECNICO1.tec_nom)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.USUARIO1.usu_nombre)
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Editar", "Edit", new { id = item.id_solicitud }) |
-                                        @Html.ActionLink("Detalles", "Details", new { id = item.id_solicitud }) |
-                                         @Html.ActionLink("Eliminar", "Delete", new { id = item.id_solicitud })
-                                    </td>
-                                </tr>
-                            }
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id_solicitud)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sol_fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fecha_progra)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.solicitante)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SEDE1.sede_nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TECNICO1.tec_nom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.USUARIO1.usu_nombre)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.id_solicitud }) |
+                            @Html.ActionLink("Detalles", "Details", new { id = item.id_solicitud }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.id_solicitud })
+                        </td>
+                    </tr>}
 
                         </table>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                @Html.ActionLink("Volver", "Inicio", "", htmlAttributes: new { @class = "btn btn-default" })
+                            </div>
+                        </div>
+
+
                     </div>
                     <!-- end single work -->
                 </div>
