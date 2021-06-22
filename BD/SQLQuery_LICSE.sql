@@ -164,13 +164,14 @@ VALUES
 
 	-- MOVIMIENTO SALIDA 
 
-	SELECT	 dbo.SOLICITUD.id_solicitud, dbo.SOLICITUD.fecha_progra, dbo.SOLICITUD.usuario, dbo.ENTRADA_SOLICITUD.cant, dbo.ELEMENTO.elem_ref, dbo.ELEMENTO.elem_nom, dbo.SOLICITUD.sede
-	FROM     dbo.ENTRADA INNER JOIN
-                 dbo.ENTRADA_SOLICITUD ON dbo.ENTRADA.id_registro = dbo.ENTRADA_SOLICITUD.entrada INNER JOIN
-                 dbo.SOLICITUD ON dbo.ENTRADA_SOLICITUD.solicitud = dbo.SOLICITUD.id_solicitud INNER JOIN
-                 dbo.ELEMENTO ON dbo.ENTRADA.elemento = dbo.ELEMENTO.id_elem
+	SELECT        dbo.SOLICITUD.id_solicitud AS Solicitud, dbo.SOLICITUD.fecha_progra AS Fecha_salida, CONVERT(varchar(10), dbo.SOLICITUD.usuario) AS Solicitante, dbo.ENTRADA_SOLICITUD.cant AS Cantidad, 
+                         dbo.ELEMENTO.elem_ref AS Referencia, dbo.ELEMENTO.elem_nom AS Nombre, CONVERT(varchar(10), dbo.SOLICITUD.sede) AS Sede
+	FROM            dbo.ENTRADA INNER JOIN
+                         dbo.ENTRADA_SOLICITUD ON dbo.ENTRADA.id_registro = dbo.ENTRADA_SOLICITUD.entrada INNER JOIN
+                         dbo.SOLICITUD ON dbo.ENTRADA_SOLICITUD.solicitud = dbo.SOLICITUD.id_solicitud INNER JOIN
+                         dbo.ELEMENTO ON dbo.ENTRADA.elemento = dbo.ELEMENTO.id_elem
 	GROUP BY dbo.SOLICITUD.id_solicitud, dbo.SOLICITUD.fecha_progra, dbo.SOLICITUD.usuario, dbo.ENTRADA_SOLICITUD.cant, dbo.ELEMENTO.elem_ref, dbo.ELEMENTO.elem_nom, dbo.SOLICITUD.sede
-
+	
 -- Stock 
 	SELECT	    dbo.ELEMENTO.elem_ref AS Referencia, dbo.ELEMENTO.elem_nom AS Nombre, dbo.CATEGORIA.nombre AS Categoria, dbo.PROVEEDOR.pro_nombre AS Proveedor, 
                     dbo.ENTRADA.cant - dbo.ENTRADA_SOLICITUD.cant AS Cantidad
